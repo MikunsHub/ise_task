@@ -25,7 +25,7 @@ export class AuthController {
     return newUser;
   }
 
-  @Post('verify')
+  @Post('verify-otp')
   @UsePipes(new ValidationPipe({ transform: true }))
   async verifyUser(@Body() verifyOtpDto: VerifyOtpDto) {
     return this.authService.verifyOtp(verifyOtpDto);
