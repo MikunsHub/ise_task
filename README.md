@@ -1,73 +1,61 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# User Authentication and Management API
+This is a RESTful API for user authentication and management built with NestJS, a powerful Node.js framework. It provides various features for user registration, login, account verification, password management, and user profile updates.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Features
+1. User Registration: Users can register with their email, firstname, lastname, and password.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+2. JWT Authentication: JSON Web Token (JWT) based authentication is used to secure endpoints.
 
-## Description
+3. Password Hashing: User passwords are securely hashed using bcrypt before being stored in the database.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+4. Account Verification: Users receive an OTP (One-Time Password) via email for account verification during registration.
+
+5. Login: Registered users can log in with their email and password to obtain a JWT access token.
+
+6. OTP Generation: Users can request to regenerate their OTP if needed.
+
+7. Password Reset: Password reset functionality is not implemented yet.
+
+<!-- Multi-Factor Authentication (MFA): MFA functionality is not implemented yet. -->
+
+8. Update User Profile: Users can update their firstname and lastname.
+
+## Endpoints
+#### Auth Endpoints
+- POST /auth/register: Register a new user.
+- POST /auth/login: Login a user and obtain a JWT token.
+- POST /auth/verify-otp: Verify user's OTP for account verification.
+- POST /auth/generate-otp: Generate a new OTP for account verification.
+#### User Endpoints
+- PATCH /users/update: Update user's firstname and lastname.
 
 ## Installation
-
+1. Clone the repository:
 ```bash
-$ npm install
+git clone <repository-url>
 ```
-
-## Running the app
-
+2. Install dependencies:
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+cd <project-folder>
+npm install
 ```
+3. Configure environment variables:
+Create a .env file in the root of the project and add the necessary environment variables such as database connection details, JWT secret, etc.
 
-## Test
-
+4. Start the application:
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm start
 ```
+## Usage
+Once the application is running, you can make HTTP requests to the provided endpoints using a tool like Postman or cURL.
 
-## Support
+## Environment Variables
+- PORT: Port number for the server (default is 3000).
+POSTGRES_HOST, POSTGRES_PORT, POSTGRES_USERNAME, POSTGRES_PASSWORD, POSTGRES_NAME: Database connection details.
+JWT_SECRET: Secret key for JWT token generation.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## Roadmap
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- [ ] Implement password reset functionality.
+- [ ] Implement Multi-Factor Authentication (MFA).
+- [ ] Enhance error handling and validation.
