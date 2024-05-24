@@ -28,7 +28,7 @@ JWT_SECRET: Secret key for JWT token generation.
 ## Installation
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/MikunsHub/ise_task.git
 ```
 2. Install dependencies:
 ```bash
@@ -93,6 +93,9 @@ Once the application is running, you can make HTTP requests to the provided endp
 3. **Process**:
 - The user's ID is extracted from the JWT token.
 - The provided firstname and lastname are updated in the database.
+
+### API Documentation
+Detailed API documentation is available [here](https://documenter.getpostman.com/view/22086870/2sA3QqfCBM).
 
 ## Roadmap
 
